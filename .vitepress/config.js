@@ -2,7 +2,8 @@ import { defineConfig, loadEnv } from 'vitepress'
 
 export default defineConfig({
   title: "ThreeJS Editor",
-  base: '/docs',
+  base: '/editor-docs',
+  outDir: './docs',
   description: "ThreeJS Editor, 3D可视化编辑器, three编辑器, 组态编辑器",
   head: [
     ['script', { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-LKJQBJNGVF' }],
