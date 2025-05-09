@@ -23,7 +23,13 @@ export default defineConfig({
   themeConfig: {
     logo: 'https://z2586300277.github.io/three-editor/dist/site.png',
     nav: [
-
+      { text: '下载⚡', link: 'https://pan.quark.cn/s/bda85de79f2b' },
+      { text: '主页🏠', link: 'https://z2586300277.github.io/' },
+      { text: '开源案例🍃', link: 'https://z2586300277.github.io/three-cesium-examples/#/example' },
+      { text: 'npm📦', link: 'https://www.npmjs.com/package/three-edit-cores' },
+      { text: 'BiBi📺', link: 'https://space.bilibili.com/245165721' },
+      { text: 'QQ群🐧', link: 'https://qm.qq.com/q/QdsKkzo2gI' },
+      { text: '组织🏢', link: 'https://openthree.github.io/three-cesium-links/' }
     ],
     footer: {
         copyright: `版权所有 ©2019-2025 优雅永不过时`,

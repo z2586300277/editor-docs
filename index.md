@@ -1,31 +1,40 @@
 ---
-
+# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
-  name: "优雅永不过时"
-  text: "三维可视化"
-  tagline: QQ：2586300277   微信：z2586300277
+  name: "Three.js 编辑器内核"
+  text: 开源 简单 高效 易扩展
+  tagline: Npm安装直接嵌入已有项目使用 —— 永久免费
+  actions:
+    - theme: brand
+      text: 预览
+      link: https://z2586300277.github.io/threejs-editor/
+    - theme: alt
+      text: 安装
+      link: /install
+    - theme: alt
+      text: 设计
+      link: /design
+    - theme: alt
+      text: api
+      link: /api
+
   image:
     src: https://z2586300277.github.io/three-editor/dist/site.png
 
 features:
-  - icon: 🍃
-    title: 开源案例
-    link: https://z2586300277.github.io/three-cesium-examples/#/example
-    details: 原生Three.js Cesium.js 开源案例
-  - icon: 🍁
-    title: 编辑器
-    link: https://z2586300277.github.io/three-editor/dist/#/editor
-    details: Three.js 低代码组态编辑器
-  - icon: 📚
-    title: 博客
-    link: https://z2586300277.github.io/blog/
-    details: Hexo 个人博客
-  - icon: 🏠
-    title: 组织
-    link: https://openthree.github.io/three-cesium-links/index.html
-    details: 专注于三维可视化的开源组织
+  - title: 急速内核
+    details: 使用原生Three.js等开源依赖,保持轻量化,内核源码仅占用600k,性能急速
+  - title: 生态广泛
+    details: 原生js构建, 可供 vue,react,anuguler, App webview 等任意使用js 的项目或者框架使用
+  - title: 简单易用
+    details: 无需深入的去学习Three.js 只需要使用几个简单的Api, 就可完成 3D场景搭建
+  - title: 组件化
+    details: 进行原生Three.js扩展,构建自己的3d 组件库, 搭配Ai 书写原生组件, 搭建企业组件库
+  - title: 模板化
+    details: 组件库拖拽生成场景, 自定义组合成三维场景模板, 形成企业模板库
+  - title: 降低成本
+    details: 降低技术研发成本, 时间成本, 人员使用成本, 降本增效
 
----
 
