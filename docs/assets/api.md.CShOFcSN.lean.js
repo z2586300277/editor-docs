@@ -1,0 +1,1 @@
+import{_ as i,c as a,o as n,ae as h}from"./chunks/framework.DgDzwDsb.js";const g=JSON.parse('{"title":"Api 文档","description":"","frontmatter":{},"headers":[],"relativePath":"api.md","filePath":"api.md"}'),l={name:"api.md"};function p(k,s,t,e,E,r){return n(),a("div",null,s[0]||(s[0]=[h("",12)]))}const y=i(l,[["render",p]]);export{g as __pageData,y as default};

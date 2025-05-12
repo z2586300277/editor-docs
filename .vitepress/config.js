@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv } from 'vitepress'
 
 export default defineConfig({
-  title: "ThreeJS Editor",
+  title: "Three.js Editor",
   base: '/editor-docs',
   outDir: './docs',
   description: "ThreeJS Editor, 3D可视化编辑器, three编辑器, 组态编辑器",
@@ -31,6 +31,16 @@ export default defineConfig({
       { text: 'BiBi📺', link: 'https://space.bilibili.com/245165721' },
       { text: 'QQ群🐧', link: 'https://qm.qq.com/q/QdsKkzo2gI' },
       { text: '组织🏢', link: 'https://openthree.github.io/three-cesium-links/' }
+    ],
+    sidebar: [
+      {
+        text: '开始',
+        items: [
+          { text: '安装', link: '/install' },
+          { text: '设计', link: '/design' },
+          { text: 'api', link: '/api' }
+        ]
+      }
     ],
     footer: {
         copyright: `版权所有 ©2019-2025 优雅永不过时`,
