@@ -26,6 +26,7 @@ export default defineConfig({
       { text: '下载⚡', link: 'https://pan.quark.cn/s/bda85de79f2b' },
       { text: '主页🏠', link: 'https://z2586300277.github.io/' },
       { text: '开源案例🍃', link: 'https://z2586300277.github.io/three-cesium-examples/#/example' },
+      { text: '旧版文档📙', link: 'https://z2586300277.github.io/three-editor/docs/dist/' },
       { text: 'npm📦', link: 'https://www.npmjs.com/package/three-edit-cores' },
       { text: 'BiBi📺', link: 'https://space.bilibili.com/245165721' },
       { text: 'QQ群🐧', link: 'https://qm.qq.com/q/QdsKkzo2gI' },
