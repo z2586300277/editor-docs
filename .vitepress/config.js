@@ -18,7 +18,13 @@ export default defineConfig({
       hm.src = "https://hm.baidu.com/hm.js?85aef82369b0fe002f0e62a775344e89";
       var s = document.getElementsByTagName("script")[0]; 
       s.parentNode.insertBefore(hm, s);
-    })();`]
+    })();`],
+    ['style', {}, `
+    .VPNavBarTitle .title::after {
+      content: url('https://visitor-badge.laobi.icu/badge?page_id=three_editor&format=true');
+      margin-left: 8px;
+      vertical-align: middle;
+    }`]
   ],
   themeConfig: {
     logo: 'https://z2586300277.github.io/three-editor/dist/site.png',
