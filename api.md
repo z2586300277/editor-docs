@@ -11,19 +11,17 @@ import { ThreeEditor } from 'three-edit-cores'
 
 ThreeEditor.dracoPath = '/draco/' // draco解码器路径
 
-ThreeEditor.__DESIGNS__  // 自定义组件列表
-
-ThreeEditor.__EFFECTS__  // 后期处理列表
+window.GUI_PARAMS = { step: 0.1 } // 内置gui 控制面板 数字步长 值
 
 const options = {
 
-    fps: null,
+    fps: null, // 例如60 则最大60帧率, 如果没值则是以显示器帧率为准
 
-    pixelRatio: window.devicePixelRatio * 1,
+    pixelRatio: window.devicePixelRatio * 1, // 渲染器像素比 原始属性
 
-    webglRenderParams: { antialias: true, alpha: true, logarithmicDepthBuffer: true },
+    webglRenderParams: { antialias: true, alpha: true, logarithmicDepthBuffer: true }, // 渲染器参数
 
-    sceneParams: json // 场景参数
+    sceneParams: json // 保存场景模板参数
 
 } // 内部参数皆为可选
 
@@ -35,6 +33,18 @@ DOM.addEventListener('dblclick', (e) =>  threeEditor.getSceneEvent(e, (info) => 
 window.addEventListener('resize', () => threeEditor.renderSceneResize()) // 窗口自适应
 
 ```
+
+## 自定义扩展项
+```js
+ThreeEditor.__DESIGNS__  // 自定义组件列表
+
+ThreeEditor.__EFFECTS__  // 后期处理列表
+
+ThreeEditor.__GLSLLIB__  // 着色器列表
+
+```
+- 三个扩展项均为数组, 按照规范书写扩展组件或功能, 直接 push 进去即可加载扩展
+
 
 ## 编辑器Api
 
@@ -77,9 +87,19 @@ scene.background = null // 清空天空
 scene.setEnvBackground(urls) // 设置环境贴图 天空盒六张图 urls = []
 scene.environmentEnabled = true // 开启环境贴图
 scene.envBackground = null // 清空环境贴图
+
+threeEditor.scene.addUpdateListener(() => {}) // 动画渲染帧
+threeEditor.scene.removeUpdateListener(() => {}) // 移除动画渲染帧
+
+threeEditor.handler.helpers.showAxes = true // 显示坐标轴
+threeEditor.handler.helpers.showGrid = true // 显示网格
+// 其余属性控制自行参考打印 ...
+
 ```
 
 ## 自定义3D 组件
+
+- 自定义组件开发参考 [链接](https://github.com/z2586300277/threejs-editor/tree/main/src/editor/compoents)
 
 ```js
 /**
@@ -104,7 +124,7 @@ scene.envBackground = null // 清空环境贴图
 ThreeEditor.__DESIGNS__.push(component)
 ```
 
-## 自定义后期处理
+## 自定义后期处理 
 
 ```js
 
@@ -139,4 +159,34 @@ const customEffect = {
 }
 
 ThreeEditor.__EFFECTS__.push(customEffect)
+```
+
+## 自定义着色器 扩展
+
+```js
+ThreeEditor.__GLSLLIB__.push(
+    {
+        name: '太阳照射',
+        commonUniforms: true, // 公共 uniforms
+        vertex: 'vUv-material', // uv
+        fragment:`
+        float cheap_star(vec2 uv, float anim)
+        {
+            uv = abs(uv);
+            vec2 pos = min(uv.xy/uv.yx, anim);
+            float p = (2.0 - pos.x - pos.y);
+            return (2.0+p*(p*p-1.5)) / (uv.x+uv.y);      
+        }
+        <SPLIT_PLACEHOLDER>
+        vec2 uv = ( gl_FragCoord.xy - .5*iResolution.xy ) / iResolution.y;
+        <UV_PLACEHOLDER>
+        uv *= 2.0 * ( cos(iTime * 2.0) -2.5); // scale
+        float anim = sin(iTime * 12.0) * 0.1 + 1.0;
+        vec3 col = cheap_star(uv, anim) * vec3(0.35,0.2,0.15);
+        `,
+        key: 'col', // 最终颜色值变量字段
+        commonFinish: true, // 公共结束尾部
+        render: 'iTime+speed' // 渲染类型 iTime += speed
+    }
+)
 ```
