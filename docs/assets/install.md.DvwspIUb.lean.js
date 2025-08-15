@@ -1,0 +1,1 @@
+import{_ as a,c as i,o as e,ae as t}from"./chunks/framework.DgDzwDsb.js";const k=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"install.md","filePath":"install.md"}'),l={name:"install.md"};function n(p,s,d,h,r,o){return e(),i("div",null,s[0]||(s[0]=[t("",3)]))}const g=a(l,[["render",n]]);export{k as __pageData,g as default};
