@@ -49,7 +49,7 @@ export default defineConfig({
       }
     ],
     footer: {
-        copyright: `版权所有 ©2019-2025 优雅永不过时`,
+        copyright: `版权所有 ©2019-${new Date().getFullYear()} 北京优雅幻光科技`
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/z2586300277/threejs-editor' }
