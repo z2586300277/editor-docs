@@ -62,6 +62,24 @@ threeEditor.openControlPanel() // 打开内置的 gui 控制面板
 
 ```
 
+## import 内置简易函数
+
+```js
+import { getObjectBox3, createGsapAnimation } from 'three-edit-cores'
+
+// 获取物体包围盒信息
+const info = getObjectBox3(mesh)
+
+// 创建gsap动画
+const animation = createGsapAnimation(mesh.position, { x: 1, y: 1, z: 1 }, {
+    duration: 2,
+    repeat: -1,
+    yoyo: true,
+    ease: "power1.inOut"
+})
+
+```
+
 ## 常用方法
 
 ```js
@@ -76,8 +94,8 @@ link.click()
 threeEditor.setOutlinePass([mesh1, mesh2]) // 选中物体添加轮廓
 
 // 设置css2d css3d 标签
-threeEditor.setCss2dDOM(div, position)
-threeEditor.setCss3dDOM(div, position)
+threeEditor.setCss2dDOM(div, position) // return css2dObject
+threeEditor.setCss3dDOM(div, position) // return css3dObject
 
 const { scene } = threeEditor
 
@@ -93,6 +111,15 @@ threeEditor.scene.removeUpdateListener(() => {}) // 移除动画渲染帧
 
 threeEditor.handler.helpers.showAxes = true // 显示坐标轴
 threeEditor.handler.helpers.showGrid = true // 显示网格
+
+// 监听模型加载进度
+Promise.all(threeEditor.modelCores.progressList.map(i => {
+    return new Promise(resolve => {
+        i.loaderService.complete = () => resolve();
+    })
+})).then(() => {
+    console.log('所有模型加载完成');
+});
 // 其余属性控制自行参考打印 ...
 
 ```
