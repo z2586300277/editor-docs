@@ -29,6 +29,7 @@ export default defineConfig({
   themeConfig: {
     logo: 'https://z2586300277.github.io/three-editor/dist/site.png',
     nav: [
+      { text: '留言📝', link: 'https://z2586300277.github.io/message.html' },
       { text: '下载⚡', link: 'https://pan.quark.cn/s/1f507069e8f1' },
       { text: '主页🏠', link: 'https://z2586300277.github.io/' },
       { text: '开源案例🍃', link: 'https://z2586300277.github.io/three-cesium-examples/#/example' },
