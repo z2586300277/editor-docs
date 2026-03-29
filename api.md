@@ -124,6 +124,19 @@ Promise.all(threeEditor.modelCores.progressList.map(i => {
 
 ```
 
+```js
+scene.ADDCALL?.(obj) // 场景添加回调 scene.ADDCALL = (obj) => 每次有物体添加都会回调
+
+scene.REMOVECALL?.(obj) // 场景移除回调 scene.REMOVECALL = (obj) => 每次有物体移除都会回调
+
+obj.ADDCALL?.() // 物体添加场景的时候调用例如 group.ADDCALL = () => console.log('group添加到场景了')
+
+obj.REMOVECALL?.() // 物体从场景移除的时候调用例如 group.REMOVECALL = () => console.log('group从场景移除了')
+
+obj.SET_STORAGE_CALL?.(storage) // 物体存储赋值后调用 例如 group.SET_STORAGE_CALL = (storage) => console.log('group存储了', storage)
+
+```
+
 ## 自定义3D 组件
 
 - 自定义组件开发参考 [链接](https://github.com/z2586300277/threejs-editor/tree/main/src/editor/compoents)
@@ -148,6 +161,8 @@ Promise.all(threeEditor.modelCores.progressList.map(i => {
     create: (storage, args, cores) => mesh
 }
  */
+
+// mesh.disBlendShader = true // 禁用配置着色面板
 ThreeEditor.__DESIGNS__.push(component)
 ```
 
