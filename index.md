@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "Three.js 编辑器内核"
+  name: "Ai 驱动的 三维编辑器"
   text: 开源 简单 高效 易扩展
-  tagline: Npm安装直接嵌入已有项目使用 —— 永久免费
+  tagline: 国内首款开源！3D可视化AI编辑器 —— 永久免费
   actions:
     - theme: brand
       text: 预览
@@ -25,16 +25,16 @@ hero:
 
 features:
   - title: 急速内核
-    details: 使用原生Three.js等开源依赖,保持轻量化,内核源码仅占用600k,性能急速
+    details: 使用原生Three.js等开源依赖,保持轻量化,内核源码仅占用600k,性能急速，适配各种场景使用
   - title: 生态广泛
-    details: 原生js构建, 可供 vue,react,anuguler, App webview 等任意使用js 的项目或者框架使用
+    details: 原生js构建, 可供 vue,react,anuguler, App webview 等适配企业各种框架集成
   - title: 简单易用
-    details: 无需深入的去学习Three.js 只需要使用几个简单的Api, 就可完成 3D场景搭建
+    details: 无需深入的去学习Three.js 只需要使用几个简单的Api 便可集成 ，Ai 对话式 场景搭建，快速使用
   - title: 组件化
-    details: 进行原生Three.js扩展,构建自己的3d 组件库, 搭配Ai 书写原生组件, 搭建企业组件库
+    details: 进行原生Three.js扩展,构建自己的3d 组件库, 搭配Ai 生成3D组件, 搭建企业自己的组件库
   - title: 模板化
-    details: 组件库拖拽生成场景, 自定义组合成三维场景模板, 形成企业模板库
+    details: 组件库拖拽生成场景,  搭配Ai对话交互建漂亮的三维场景模板, 形成企业自己模板库
   - title: 降低成本
-    details: 降低技术研发成本, 时间成本, 人员使用成本, 降本增效
+    details: 降低技术研发成本, 时间成本, 人员使用成本, 降本增效，助力企业数字化转型升级
 
 

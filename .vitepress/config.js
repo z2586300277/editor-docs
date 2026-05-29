@@ -32,6 +32,7 @@ export default defineConfig({
       { text: '编辑器🍏', link: 'https://z2586300277.github.io/threejs-editor/' },
       { text: '旧版文档📙', link: 'https://z2586300277.github.io/three-editor/docs/dist/' },
       { text: '联系☘️', link: 'https://z2586300277.github.io/' },
+      { text: '企业🏬', link: 'http://site.threehub.cn/' },
       { text: '下载⚡', link: 'https://pan.quark.cn/s/1f507069e8f1' },
       { text: '开源案例🍃', link: 'https://z2586300277.github.io/three-cesium-examples/#/example' },
       { text: 'npm📦', link: 'https://www.npmjs.com/package/three-edit-cores' },
@@ -50,7 +51,7 @@ export default defineConfig({
       }
     ],
     footer: {
-      copyright: `版权所有 ©2019-${new Date().getFullYear()} 北京优雅幻光科技`
+      copyright: `版权所有 ©2019-${new Date().getFullYear()} 北京优悦幻光科技有限公司`
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/z2586300277/threejs-editor' }
