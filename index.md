@@ -19,6 +19,9 @@ hero:
     - theme: alt
       text: api
       link: /api
+    - theme: alt
+      text: 详细文档
+      link: /pdf
 
   image:
     src: https://z2586300277.github.io/three-editor/dist/site.png

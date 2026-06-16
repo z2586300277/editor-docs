@@ -232,3 +232,250 @@ ThreeEditor.__GLSLLIB__.push(
     }
 )
 ```
+
+
+```js
+export function getObjectBox3(object: THREE.Object3D): THREE.Box3
+
+export function cloneObjectMaterial(mesh: THREE.Mesh, material: THREE.Material): THREE.Material
+
+export function objectChangeMaterial(mesh: THREE.Mesh, material: THREE.Material): void
+
+export function getMaterials(object: THREE.Object3D): THREE.Material[]
+
+export function getDistanceScalePoint(point: THREE.Vector3, distance: number, camera: THREE.Camera): THREE.Vector3
+
+export function syncVectorTransform(source: THREE.Object3D, target: THREE.Object3D): void
+
+export function getDirectionQuaternion(direction: THREE.Vector3): THREE.Quaternion
+
+export function setGsapMeshAction(mesh: THREE.Object3D, action: gsap.TweenVars): void
+
+export function objectChangeTransform(mesh: THREE.Object3D, transform: Record<string, unknown>): void
+
+export function getObjectViews(object: THREE.Object3D, camera: THREE.Camera): Record<string, unknown>
+
+export function createGsapAnimation(target: object, vars: gsap.TweenVars): gsap.core.Tween
+
+export function createSpriteText(text: string, parameters?: Record<string, unknown>): THREE.Sprite
+
+export function createCanvasText(text: string, parameters?: Record<string, unknown>): THREE.Sprite
+
+export function restoreHistoryHandler(handler: Record<string, unknown>, storage: Record<string, unknown>): void
+
+export const CORES_LIST: Record<string, unknown>[]
+
+export class ThreeEditor {
+
+    constructor(DOM: HTMLElement, parameters?: Record<string, unknown>)
+
+    static dracoPath: string
+
+    static styleOverrides: Record<string, unknown>
+
+    static __DESIGNS__: Record<string, unknown>[]
+
+    static __EFFECTS__: Record<string, unknown>[]
+
+    static __GLSLLIB__: Record<string, unknown>[]
+
+    scene: THREE.Scene
+
+    camera: THREE.Camera
+
+    renderer: THREE.WebGLRenderer
+
+    controls: Record<string, unknown>
+
+    transformControls: Record<string, unknown>
+
+    effectComposer: Record<string, unknown>
+
+    renderSceneResize(): void
+
+    destroySceneRender(): void
+
+    saveSceneEdit(): Record<string, unknown>
+
+    resetEditorStorage(sceneParams: Record<string, unknown>): void
+
+    openControlPanel(): void
+
+    getSceneEvent(event: MouseEvent, callback?: (info: Record<string, unknown>) => void): void
+
+    getRawSceneEvent(): Record<string, unknown>
+
+    setOutlinePass(meshList?: THREE.Object3D[]): THREE.Object3D[]
+
+    getSceneEditorImage(params?: [string, string], scale?: number): string
+
+    setCss2dDOM(DOM: HTMLElement, position: THREE.Vector3): Record<string, unknown>
+
+    setCss3dDOM(DOM: HTMLElement, position: THREE.Vector3): Record<string, unknown>
+
+    [key: string]: unknown
+
+}
+```
+
+ 文档主页 https://z2586300277.github.io/editor-docs/
+
+- 案例 https://z2586300277.github.io/three-editor/dist/#/example
+
+- author https://z2586300277.github.io/
+
+- Copyright (c) threehub.cn email:2586300277@qq.com All rights reserved.
+
+### 基础
+
+```js
+import { ThreeEditor } from 'three-edit-cores'
+
+ThreeEditor.dracoPath = '/draco/' // draco解码器路径
+
+ThreeEditor.__DESIGNS__  // 自定义组件列表
+
+ThreeEditor.__EFFECTS__  // 后期处理列表
+
+const options = {
+
+    fps: null,
+
+    pixelRatio: window.devicePixelRatio * 1,
+
+    webglRenderParams: { antialias: true, alpha: true, logarithmicDepthBuffer: true },
+
+    sceneParams: json // 场景参数
+
+} // 内部参数皆为可选
+
+const threeEditor = new ThreeEditor(DOM, options)
+
+// 添加点击事件
+DOM.addEventListener('dblclick', (e) =>  threeEditor.getSceneEvent(e, (info) => {}))
+
+window.addEventListener('resize', () => threeEditor.renderSceneResize()) // 窗口自适应
+
+```
+
+### 编辑器Api
+
+```js
+
+const json  = threeEditor.saveSceneEdit()  // 获取编辑器保存的json 初始化可加载
+
+threeEditor.renderSceneResize() // 渲染器自适应窗口大小
+
+threeEditor.resetEditorStorage(json) // 重置编辑器 场景1 => 场景2
+
+threeEditor.destroySceneRender() // 销毁场景
+
+threeEditor.openControlPanel() // 打开内置的 gui 控制面板
+
+```
+
+### 常用方法
+
+```js
+
+// 截图
+const base64 = threeEditor.getSceneEditorImage()
+const link = document.createElement('a');
+link.href = base64;
+link.download = 'myImage.png';
+link.click()
+
+threeEditor.setOutlinePass([mesh1, mesh2]) // 选中物体添加轮廓
+
+// 设置css2d css3d 标签
+threeEditor.setCss2dDOM(div, position)
+threeEditor.setCss3dDOM(div, position)
+
+const { scene } = threeEditor
+
+scene.setSceneBackground(urls) // 设置场景背景 天空盒六张图 urls = []
+scene.background = null // 清空天空
+
+scene.setEnvBackground(urls) // 设置环境贴图 天空盒六张图 urls = []
+scene.environmentEnabled = true // 开启环境贴图
+scene.envBackground = null // 清空环境贴图
+```
+
+```js
+scene.ADDCALL?.(obj) // 场景添加回调 scene.ADDCALL = (obj) => 每次有物体添加都会回调
+
+scene.REMOVECALL?.(obj) // 场景移除回调 scene.REMOVECALL = (obj) => 每次有物体移除都会回调
+
+obj.ADDCALL?.() // 物体添加场景的时候调用例如 group.ADDCALL = () => console.log('group添加到场景了')
+
+obj.REMOVECALL?.() // 物体从场景移除的时候调用例如 group.REMOVECALL = () => console.log('group从场景移除了')
+
+obj.SET_STORAGE_CALL?.(storage) // 物体存储赋值后调用 例如 group.SET_STORAGE_CALL = (storage) => console.log('group存储了', storage)
+
+scene.SET_STORAGE_CALL?.(storage) // 场景存储赋值后调用 例如 scene.SET_STORAGE_CALL = (storage) => console.log('场景还原', storage)
+
+```
+
+### 自定义3D 组件
+
+```js
+/**
+ * component 自定义组件  结构
+ * {
+
+    name: String, // 名称
+
+    label: '组件名字', // 标签
+
+    initPanel?: (initFolder, args, cores) => void,
+
+    createPanel?: (mesh, folder, args) => void,
+
+    getStorage: (mesh, args, cores) => storage,
+
+    setStorage: (mesh, storage, args, cores) => void,
+
+    create: (storage, args, cores) => mesh
+}
+
+mesh.disBlendShader = true // 禁用配置着色面板
+ */
+ThreeEditor.__DESIGNS__.push(component)
+```
+
+### 自定义后期处理
+
+```js
+
+const install = ({ DOM, renderer }) => {
+    const afterimagePass = new AfterimagePass();
+    afterimagePass.enabled = false
+    afterimagePass.uniforms["damp"].value = 0.96
+    return afterimagePass
+}
+
+const getStorage = (afterimagePass) => {
+    return {
+        damp: afterimagePass.uniforms["damp"].value,
+        enabled: afterimagePass.enabled
+    }
+}
+
+const setStorage = (afterimagePass, storage) => {
+    if (storage.damp !== undefined)  afterimagePass.uniforms["damp"].value = storage.damp;
+}
+
+const createPanel = (afterimagePass, folder) => folder.add(afterimagePass, 'enabled').name('启用残影效果')
+
+const customEffect = { 
+    name: 'afterimagePass', 
+    label: '残影效果', 
+    order: 80,  // 排序
+    install, // 安装
+    getStorage, // 存储
+    setStorage, // 还原
+    createPanel // 控制板
+}
+
+ThreeEditor.__EFFECTS__.push(customEffect)
+```
