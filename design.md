@@ -1,3 +1,8 @@
+---
+title: 设计创作理念
+description: Three.js Editor 设计架构说明，了解 three-edit-cores 如何集成场景、相机、渲染器与控制器等核心模块。
+---
+
 # 创作理念
 
 - **集成Three.js各功能**

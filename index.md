@@ -1,6 +1,8 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+title: Three.js 开源3D可视化AI编辑器
+description: 国内首款开源 Three.js 3D 可视化 AI 编辑器，永久免费。支持 Vue、React 集成，组件化场景搭建与组态编辑。
 
 hero:
   name: "Ai 驱动的 三维编辑器"
@@ -17,10 +19,13 @@ hero:
       text: 设计
       link: /design
     - theme: alt
-      text: api
+      text: Api
       link: /api
     - theme: alt
-      text: 详细文档
+      text: 完整说明
+      link: /details
+    - theme: alt
+      text: 使用文档
       link: /pdf
 
   image:

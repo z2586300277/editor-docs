@@ -1,3 +1,8 @@
+---
+title: API 文档
+description: three-edit-cores 完整 API 参考，包含初始化、编辑器方法、自定义 3D 组件扩展与场景存取接口。
+---
+
 # Api 文档
 
 ::: info 简介
