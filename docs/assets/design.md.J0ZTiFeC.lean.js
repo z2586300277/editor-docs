@@ -1,1 +1,0 @@
-import{_ as i,c as a,o as n,ae as h}from"./chunks/framework.CItcxDoM.js";const g=JSON.parse('{"title":"创作理念","description":"","frontmatter":{},"headers":[],"relativePath":"design.md","filePath":"design.md"}'),k={name:"design.md"};function l(t,s,p,e,r,E){return n(),a("div",null,[...s[0]||(s[0]=[h("",5)])])}const y=i(k,[["render",l]]);export{g as __pageData,y as default};

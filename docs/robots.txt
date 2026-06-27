@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://z2586300277.github.io/editor-docs/sitemap.xml
