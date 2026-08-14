@@ -149,6 +149,8 @@ export default defineConfig({
           { text: '设计', link: '/design' },
           { text: 'Api', link: '/api' },
           { text: '完整说明', link: '/details' },
+          { text: '使用文档', link: '/pdf' },
+          { text: '软件著作权', link: '/card' },
         ],
       },
     ],
