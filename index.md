@@ -10,8 +10,8 @@ hero:
   tagline: 国内首款开源！3D可视化AI编辑器 —— 永久免费
   actions:
     - theme: brand
-      text: 预览
-      link: https://z2586300277.github.io/threejs-editor/
+      text: 总览
+      link: /preview
     - theme: alt
       text: 安装
       link: /install
